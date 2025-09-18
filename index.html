@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FATEREBEL — Under Construction</title>
 
-  <!-- Tell search engines to ignore this page until launch -->
+  <!-- Keep search engines off until launch -->
   <meta name="robots" content="noindex, nofollow" />
 
   <!-- Fonts -->
@@ -23,50 +23,73 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      display:grid;
-      place-items:center;
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin:0;background:var(--bg);color:var(--text);
+      display:grid;place-items:center;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      position:relative;overflow-x:hidden;
     }
-    .wrap{max-width:800px; padding:48px 20px; text-align:center}
+    /* subtle mood vignette */
+    body::before{
+      content:"";position:fixed;inset:-10%;pointer-events:none;z-index:0;
+      background:
+        radial-gradient(70% 55% at 50% 25%, rgba(212,175,55,.07), transparent 60%),
+        radial-gradient(120% 90% at 50% 120%, rgba(0,0,0,.65), rgba(0,0,0,.2));
+    }
+
+    .wrap{max-width:800px;padding:48px 20px;text-align:center;position:relative;z-index:1}
+
     h1{
-      font-family:"Playfair Display", serif;
-      letter-spacing:.04em;
-      margin:0 0 8px;
-      font-size:48px;
-      line-height:1.08;
+      font-family:"Playfair Display",serif;letter-spacing:.04em;margin:0 0 8px;
+      font-size:48px;line-height:1.08;
       background:linear-gradient(180deg,#fff 0%,#efe6c8 60%,#d7c999 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
+
     .tag{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 18px; border-radius:9999px;
-      border:1.6px solid transparent;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 18px;border-radius:9999px;border:1.6px solid transparent;
       background:
         linear-gradient(var(--bg),var(--bg)) padding-box,
         linear-gradient(90deg,var(--goldA),var(--goldB)) border-box;
-      color:#ffe8b0;
-      box-shadow:0 6px 18px rgba(241,154,63,.15);
-      margin-top:10px;
+      color:#ffe8b0;box-shadow:0 8px 22px rgba(241,154,63,.18);margin-top:10px;
+      font-weight:600;
     }
+
+    /* quote */
+    .sep{
+      width:120px;height:1px;margin:18px auto 0;
+      background:linear-gradient(90deg,transparent,rgba(212,175,55,.75),transparent);
+    }
+    blockquote{
+      margin:12px auto 0;max-width:680px;color:#EAEAEA;
+      font-weight:500;line-height:1.8;font-size:16px;
+    }
+
     .card{
-      margin:22px auto 0; max-width:680px;
-      padding:18px 20px; border-radius:16px;
-      border:1px solid var(--hair);
-      background:rgba(255,255,255,.02);
+      margin:22px auto 0;max-width:680px;padding:18px 20px;border-radius:14px;
+      border:1px solid var(--hair);background:rgba(255,255,255,.02);
     }
-    a{color:#ffe8b0; text-decoration:none}
+
+    a{color:#ffe8b0;text-decoration:none}
     a:hover{text-decoration:underline}
-    .small{color:var(--muted); font-size:12px; margin-top:12px}
-    .footer{color:var(--muted); font-size:12px; margin-top:28px}
+    .small{color:var(--muted);font-size:12px;margin-top:12px}
+    .footer{color:var(--muted);font-size:12px;margin-top:28px}
+
+    @media (max-width:640px){
+      h1{font-size:42px;letter-spacing:.06em}
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <h1>FATEREBEL</h1>
     <div class="tag">Under Construction</div>
+
+    <!-- elegant quote (no name) -->
+    <p class="sep" aria-hidden="true"></p>
+    <blockquote>
+      Light will find your path. You won’t be alone.
+    </blockquote>
 
     <p class="card">
       We’re crafting <strong>Sunlight Soul Card Reading</strong> with care.
@@ -78,7 +101,7 @@
       Questions? <a href="mailto:INFO@THEFATEREBEL.COM">INFO@THEFATEREBEL.COM</a>
     </p>
 
-    <div class="footer">© <span id="yr"></span> FATEREBEL. All rights reserved.</div>
+    <div class="footer">&copy; <span id="yr"></span> The FateRebel LLC. All rights reserved.</div>
   </main>
 
   <script>
